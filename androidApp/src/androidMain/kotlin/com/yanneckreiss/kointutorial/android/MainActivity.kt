@@ -1,4 +1,4 @@
-package com.myapplication
+package com.yanneckreiss.kointutorial.android
 
 import MainView
 import android.os.Bundle

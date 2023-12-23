@@ -1,4 +1,4 @@
-rootProject.name = "MyApplication"
+rootProject.name = "KMPKoinTutorialProject"
 
 include(":androidApp")
 include(":shared")
@@ -15,6 +15,7 @@ pluginManagement {
         val kotlinVersion = extra["kotlin.version"] as String
         val agpVersion = extra["agp.version"] as String
         val composeVersion = extra["compose.version"] as String
+        val kspVersion = extra["ksp.version"] as String
 
         kotlin("jvm").version(kotlinVersion)
         kotlin("multiplatform").version(kotlinVersion)
@@ -24,11 +25,14 @@ pluginManagement {
         id("com.android.library").version(agpVersion)
 
         id("org.jetbrains.compose").version(composeVersion)
+
+        // Sets the KSP version for the whole project
+        id("com.google.devtools.ksp").version(kspVersion)
     }
 }
 
 plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version("0.4.0")
+    id("org.gradle.toolchains.foojay-resolver-convention") version ("0.4.0")
 }
 
 dependencyResolutionManagement {

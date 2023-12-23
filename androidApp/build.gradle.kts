@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.application")
     id("org.jetbrains.compose")
+    id("com.google.devtools.ksp")
 }
 
 kotlin {
@@ -34,5 +35,17 @@ android {
     }
     kotlin {
         jvmToolchain(17)
+    }
+
+    dependencies {
+        implementation(platform("io.insert-koin:koin-bom:3.5.3"))
+        implementation("io.insert-koin:koin-core")
+        implementation("io.insert-koin:koin-android")
+
+        //<editor-fold desc="Koin Annotations">
+        // Annotations
+        implementation("io.insert-koin:koin-annotations:1.3.0")
+        ksp("io.insert-koin:koin-ksp-compiler:1.3.0")
+        //</editor-fold>
     }
 }
